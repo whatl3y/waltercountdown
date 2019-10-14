@@ -1,0 +1,21 @@
+{
+  "name": "waltercountdown",
+  "version": "0.0.1",
+  "description": "Blake and Adrienne Walter Wedding Countdown",
+  "main": "./node_modules/.bin/http-server",
+  "scripts": {
+    "start": "./node_modules/.bin/http-server www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatl3y/waltercountdown.git"
+  },
+  "author": "Lance Whatley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whatl3y/waltercountdown/issues"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

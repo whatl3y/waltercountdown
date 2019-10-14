@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Lance Whatley">
+
+    <title>Blake &amp; Adrienne Walter Wedding Countdown</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <style>
+      @font-face {
+        font-family: "KingLionel";
+        src: url("fonts/KingLionel.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "AlwaysForever";
+        src: url("fonts/AlwaysForever.ttf") format("truetype");
+      }
+
+      body,
+      html {
+        font-family: "AlwaysForever", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: url(images/blakeadrienne_web.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      .main-container:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.7;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      #counter {
+        font-size: 5rem;
+        right: 50px;
+        margin: 0px;
+        position: fixed;
+        text-align: center;
+        z-index: 9;
+      }
+
+      #main-date {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 900px) {
+        #counter {
+          bottom: 30px;
+          right: inherit;
+          width: 100%;
+        }
+      }
+
+      @media (min-width: 901px) {
+        #counter {
+          top: 30px;
+          min-width: 240px;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container"></div>
+    <h1 id="counter">
+      <div id="countdown"></div>
+      <div id="main-date"></div>
+    </h1>
+
+    <script src="js/moment.min.js"></script>
+    <script>
+      function getCountdown() {
+        const weddingTime = moment('2019-10-19T21:00:00Z')
+        const timeLeft = moment.utc(weddingTime.diff(moment()))
+        return [ weddingTime, timeLeft ]
+      }
+
+      function putCountdownInDom() {
+        const ary = getCountdown()
+        const gameTime = ary[0]
+        const timeLeft = ary[1]
+        const countdownContainer = document.getElementById('countdown')
+        const mainDateContainer = document.getElementById('main-date')
+        countdownContainer.innerHTML = `
+          ${parseInt(timeLeft.format('D')) - 1} days<br> 
+          ${timeLeft.format('H')} hours<br>
+          ${timeLeft.format('m')} minutes<br>
+          ${timeLeft.format('ss')} seconds`
+
+          mainDateContainer.innerHTML = `${gameTime.format('MMMM Do, YYYY h:mm a')}`
+      }
+
+      putCountdownInDom()
+      setInterval(putCountdownInDom, 1000)
+    </script>
+  </body>
+</html>

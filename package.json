@@ -16,6 +16,6 @@
     "url": "https://github.com/whatl3y/waltercountdown/issues"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.2"
   }
 }
